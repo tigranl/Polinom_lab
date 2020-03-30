@@ -79,13 +79,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\list.cpp" />
-    <ClCompile Include="..\..\..\src\monom.cpp" />
-    <ClCompile Include="..\..\..\src\polinom.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\..\include\list.h" />
-    <ClInclude Include="..\..\..\include\monom.h" />
     <ClInclude Include="..\..\..\include\polinom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

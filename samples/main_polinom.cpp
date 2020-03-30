@@ -1,66 +1,57 @@
-#include "list.h"
-#include "polinom.h"
 #include <iostream>
+#include "polinom.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
+using namespace std;
 
-void main()
-{
-	try
-	{
-		Polinom p;
-		Polinom q;
-		Polinom res;
-		int operation;
+int main() {
 
-		cout << "Enter polinom P" << endl;
-		cin >> p;
-		cout << endl;
+	int size;
+	int column = 2;
+	int** arr;
+	cout << "Polynomial P" << endl;
+	cout << "Enter the first polynomial's size: " << endl;
+	cin >> size;
+	arr = new int* [size];
+	for (int i = 0; i < size; i++)
+		arr[i] = new int[column];
 
-		cout << "Enter polinom Q" << endl;
-		cin >> q;
-		cout << endl;
-
-		cout << "Select an operation:" << endl;
-		cout << "1: P + Q" << endl;
-		cout << "2: P - Q" << endl;
-		cout << endl;
-
-		cin >> operation;
-		cout << endl;
-
-		bool fl = true;
-
-		switch(operation)
-		{
-			case 1:
-			{
-				res = p + q;
-				break;
-			}
-			case 2:
-			{
-				res = p - q;
-				break;
-			}
-			default:
-			{
-				fl = false;
-				cout << "Incorrect input!" << endl;
-				break;
-			}
-		}
-
-		if (fl)
-		{
-			cout << "Result: " << res << endl;
-			cout << res.toStr() << endl;
-		}
+	for (int i = 0; i < size; i++) {
+		cout << "Enter " << i << " coefficient" << endl;
+		cin >> arr[i][0];
+		cout << "Enter the powers" << endl;
+		cin >> arr[i][1];
 	}
-	catch (const char* error)
-	{
-		cout<< error <<endl;
+	TPolynomial pol(arr, size);
+	cout << "The first polynom: " << pol;
+
+
+	int** arr2;
+	cout << "Polynom Q" << endl;
+	cout << "Enter the second polynomial's size: " << endl;
+	cin >> size;
+	arr2 = new int* [size];
+	for (int i = 0; i < size; i++)
+		arr2[i] = new int[column];
+
+	for (int i = 0; i < size; i++) {
+		cout << "Enter " << i << " coefficient" << endl;
+		cin >> arr2[i][0];
+		cout << "Enter powers" << endl;
+		cin >> arr2[i][1];
 	}
+	TPolynomial pol1(arr2, size);
+	cout << "The second polynomial: " << arr2 << endl;
+
+	pol += pol1;
+	cout << "P + Q = " << pol << endl;
+
+	int monomMas[1][2];
+	cout << "Enter monom's coefficient" << endl;
+	cin >> monomMas[0][0];
+	cout << "Enter monom's powers" << endl;
+	cin >> monomMas[0][1];
+	TMonom mon2(monomMas);
+	pol1.AddMonom(mon2);
+	cout << pol1 << endl;
+
 }

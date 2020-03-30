@@ -13,8 +13,5 @@
     <ClCompile Include="..\..\..\test\test_polinom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test_monom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
